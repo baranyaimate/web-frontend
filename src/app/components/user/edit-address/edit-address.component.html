@@ -1,0 +1,40 @@
+<div class="edit-address-container container-sm mt-4">
+    <form #editAddressForm="ngForm" *ngIf="address" class="address-card d-flex justify-content-center align-items-center flex-column gap-3 p-4 mb-4 rounded border">
+
+        <div class="form-floating w-100">
+            <input [(ngModel)]="address.country" type="text" id="country" name="country" class="form-control" required/>
+            <label for="country">Country</label>
+        </div>
+
+        <div class="form-floating w-100">
+            <input [(ngModel)]="address.city" type="text" id="city" name="city" class="form-control" required/>
+            <label for="city">City</label>
+        </div>
+
+        <div class="form-floating w-100">
+            <input [(ngModel)]="address.postcode" type="text" id="postcode" name="postcode" class="form-control" required/>
+            <label for="postcode">Postcode</label>
+        </div>
+
+        <div class="form-floating w-100">
+            <input [(ngModel)]="address.state" type="text" id="state" name="state" class="form-control" required/>
+            <label for="state">State</label>
+        </div>
+
+        <div class="form-floating w-100">
+            <input [(ngModel)]="address.streetName" type="text" id="streetName" name="streetName" class="form-control" required/>
+            <label for="streetName">Street name</label>
+        </div>
+
+        <div class="form-floating w-100">
+            <input [(ngModel)]="address.streetNumber" type="text" id="streetNumber" name="streetNumber" class="form-control" required/>
+            <label for="streetNumber">Street number</label>
+        </div>
+
+        {{address | json}}
+
+        <a class="btn btn-secondary w-100" type="button" routerLink="/user">Cancel</a>
+        <button class="btn btn-primary w-100" type="button" (click)="save()">Save</button>
+
+    </form>
+</div>
