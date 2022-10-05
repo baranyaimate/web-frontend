@@ -1,0 +1,24 @@
+<div class="edit-user-container container-sm mt-4">
+    <form #editUserForm="ngForm" *ngIf="user" class="user-card d-flex justify-content-center align-items-center flex-column gap-3 p-4 mb-4 rounded border">
+        <img src="assets/svg/user.svg" class="rounded" alt="" width="100" height="100">
+
+        <div class="form-floating w-100">
+            <input [(ngModel)]="user.firstName" type="text" id="firstName" name="firstName" class="form-control" required/>
+            <label for="firstName">First name</label>
+        </div>
+
+        <div class="form-floating w-100">
+            <input [(ngModel)]="user.lastName" type="text" id="lastName" name="lastName" class="form-control" required/>
+            <label for="lastName">Last name</label>
+        </div>
+
+        <div class="form-floating w-100">
+            <input [(ngModel)]="user.email" type="email" id="email" name="email" class="form-control" required/>
+            <label for="email">Email</label>
+        </div>
+
+        <a class="btn btn-secondary w-100" type="button" routerLink="/user">Cancel</a>
+        <button class="btn btn-primary w-100" type="button" (click)="save()">Save</button>
+
+    </form>
+</div>
