@@ -12,7 +12,6 @@ export class EditAddressComponent implements OnInit {
 
   address: Address;
   id: number = parseInt(this.activatedRoute.snapshot.paramMap.get("id") ?? '');
-  submitted = false;
 
   constructor(
     private router: Router,
@@ -25,7 +24,6 @@ export class EditAddressComponent implements OnInit {
   }
 
   save() {
-    this.submitted = true;
     this.address.userId = this.address.user?.id;
     this._addressService.save(this.address);
     this.router.navigate(['/user'])

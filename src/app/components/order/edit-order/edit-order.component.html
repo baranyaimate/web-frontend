@@ -13,18 +13,15 @@
 
         <div class="form-floating w-100" *ngFor="let orderProduct of order.products">
 
-            <!-- TODO: fixme -->
-            <select [(ngModel)]="orderProduct.id" id="product" name="product" class="form-control">
+            <select [(ngModel)]="orderProduct.id" id="{{ 'product-' + orderProduct.id }}" name="{{ 'product-' + orderProduct.id }}" class="form-control">
                 <option *ngFor="let item of allProducts" [value]="item.id">
-                    {{ item.name }} {{ item.id }} {{ orderProduct.id }}
+                    {{ item.name }}
                 </option>
             </select>
             <label for="product">Product</label>
             
         </div>
     
-        {{order | json}}
-
         <button class="btn btn-outline-secondary w-100" (click)="addProductInput()">Add product</button>
 
         <hr class="w-100">

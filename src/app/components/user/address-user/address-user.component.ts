@@ -12,7 +12,6 @@ export class AddressUserComponent implements OnInit {
 
   addresses: Address[] = [];
   userId: number = parseInt(this.activatedRoute.snapshot.paramMap.get("id") ?? '');
-  submitted = false;
 
   constructor(
     private router: Router,

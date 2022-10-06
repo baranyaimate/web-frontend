@@ -16,7 +16,6 @@ export class EditOrderComponent implements OnInit {
 
   order: Order;
   id: number = parseInt(this.activatedRoute.snapshot.paramMap.get("id") ?? '');
-  submitted = false;
 
   allUsers: User[] = [];
   allProducts: Product[] = [];
@@ -43,7 +42,6 @@ export class EditOrderComponent implements OnInit {
   }
 
   save() {
-    this.submitted = true;
     this._orderService.save(this.order);
     this.router.navigate(['/order'])
   }

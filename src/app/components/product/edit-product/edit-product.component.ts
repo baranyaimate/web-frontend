@@ -12,7 +12,6 @@ export class EditProductComponent implements OnInit {
 
   product: Product;
   id: number = parseInt(this.activatedRoute.snapshot.paramMap.get("id") ?? '');
-  submitted = false;
 
   constructor(
     private router: Router,
@@ -25,7 +24,6 @@ export class EditProductComponent implements OnInit {
   }
 
   save() {
-    this.submitted = true;
     this._productService.save(this.product);
     this.router.navigate(['/product'])
   }
