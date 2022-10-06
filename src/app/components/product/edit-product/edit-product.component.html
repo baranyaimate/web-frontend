@@ -1,6 +1,5 @@
 <div class="edit-product-container container-sm mt-4">
     <form #editProductForm="ngForm" *ngIf="product" class="product-card d-flex justify-content-center align-items-center flex-column gap-3 p-4 mb-4 rounded border">
-        <img src="assets/svg/product.svg" class="rounded" alt="" width="100" height="100">
 
         <div class="form-floating w-100">
             <input [(ngModel)]="product.name" type="text" id="name" name="name" class="form-control" required/>

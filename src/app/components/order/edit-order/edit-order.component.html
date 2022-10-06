@@ -1,6 +1,5 @@
 <div class="edit-order-container container-sm mt-4">
     <form #editOrderForm="ngForm" *ngIf="order" class="order-card d-flex justify-content-center align-items-center flex-column gap-3 p-4 mb-4 rounded border">
-        <img src="assets/svg/product.svg" class="rounded" alt="" width="100" height="100">
 
         <div class="form-floating w-100">
             <select [(ngModel)]="order.userId" id="user" name="user" class="form-control" required>
@@ -11,14 +10,14 @@
             <label for="user">User</label>
         </div>
 
-        <div class="form-floating w-100" *ngFor="let orderProduct of order.products">
+        <div class="form-floating w-100" *ngFor="let orderProduct of order.products; index as i">
 
-            <select [(ngModel)]="orderProduct.id" id="{{ 'product-' + orderProduct.id }}" name="{{ 'product-' + orderProduct.id }}" class="form-control">
+            <select [(ngModel)]="orderProduct.id" id="{{ 'product-' + i }}" name="{{ 'product-' + i }}" class="form-control">
                 <option *ngFor="let item of allProducts" [value]="item.id">
                     {{ item.name }}
                 </option>
             </select>
-            <label for="product">Product</label>
+            <label for="product">Product #{{ i + 1 }}</label>
             
         </div>
     

@@ -33,8 +33,8 @@ export class EditOrderComponent implements OnInit {
       this.order = response;
       this.order.userId = this.order.user?.id;
       this.order.productIds = [];
-      this.order.products?.forEach(prod => {
-        this.order.productIds?.push(prod.id ?? 0);
+      this.order.products?.forEach(product => {
+        this.order.productIds?.push(product.id ?? 0);
       });
     });
     this._userService.getUsers().subscribe(response => this.allUsers = response);
@@ -42,6 +42,11 @@ export class EditOrderComponent implements OnInit {
   }
 
   save() {
+    this.order.productIds = [];
+    this.order.products?.forEach(product => {
+      this.order.productIds?.push(product.id ?? 0);
+    });
+
     this._orderService.save(this.order);
     this.router.navigate(['/order'])
   }
