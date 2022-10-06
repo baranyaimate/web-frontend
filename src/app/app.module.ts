@@ -13,6 +13,8 @@ import { EditUserComponent } from './components/user/edit-user/edit-user.compone
 import { FormsModule } from '@angular/forms';
 import { AddressUserComponent } from './components/user/address-user/address-user.component';
 import { EditAddressComponent } from './components/user/edit-address/edit-address.component';
+import { EditProductComponent } from './components/product/edit-product/edit-product.component';
+import { EditOrderComponent } from './components/order/edit-order/edit-order.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { EditAddressComponent } from './components/user/edit-address/edit-addres
     OrderComponent,
     EditUserComponent,
     AddressUserComponent,
-    EditAddressComponent
+    EditAddressComponent,
+    EditProductComponent,
+    EditOrderComponent
   ],
   imports: [
     BrowserModule,
