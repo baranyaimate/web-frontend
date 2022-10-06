@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Address } from 'src/app/models/address';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { AddressService } from 'src/app/services/address.service';
 
 @Component({
@@ -14,7 +14,6 @@ export class AddressUserComponent implements OnInit {
   userId: number = parseInt(this.activatedRoute.snapshot.paramMap.get("id") ?? '');
 
   constructor(
-    private router: Router,
     private activatedRoute: ActivatedRoute,
     private _addressService: AddressService
   ) { }

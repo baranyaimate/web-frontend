@@ -13,11 +13,14 @@ const routes: Routes = [
   { path: 'user', component: UserComponent },
   { path: 'user/:id/edit', component: EditUserComponent },
   { path: 'user/:id/address', component: AddressUserComponent },
-  { path: 'address/:id/edit', component: EditAddressComponent },
-  { path: 'product/:id/edit', component: EditProductComponent },
-  { path: 'order/:id/edit', component: EditOrderComponent },
+
   { path: 'product', component: ProductComponent },
-  { path: 'order', component: OrderComponent }
+  { path: 'product/:id/edit', component: EditProductComponent },
+
+  { path: 'order', component: OrderComponent },
+  { path: 'order/:id/edit', component: EditOrderComponent },
+
+  { path: 'address/:id/edit', component: EditAddressComponent },
 ];
 
 @NgModule({
