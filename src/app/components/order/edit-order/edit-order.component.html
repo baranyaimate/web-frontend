@@ -10,7 +10,7 @@
             <label for="user">User</label>
         </div>
 
-        <div class="form-floating w-100" *ngFor="let orderProduct of order.products; index as i">
+        <div class="form-floating w-100 position-relative" *ngFor="let orderProduct of order.products; index as i">
 
             <select [(ngModel)]="orderProduct.id" id="{{ 'product-' + i }}" name="{{ 'product-' + i }}" class="form-control">
                 <option *ngFor="let item of allProducts" [value]="item.id">
@@ -18,15 +18,19 @@
                 </option>
             </select>
             <label for="product">Product #{{ i + 1 }}</label>
+
+            <button (click)="removeProduct(i)" class="remove-btn position-absolute end-0 top-50 translate-middle btn btn-outline-danger btn-sm">
+                <em class="bi bi-x-lg"></em>
+            </button>
             
         </div>
     
-        <button class="btn btn-outline-secondary w-100" (click)="addProductInput()">Add product</button>
+        <button (click)="addProduct()" class="btn btn-outline-secondary w-100">Add product</button>
 
         <hr class="w-100">
 
-        <a class="btn btn-outline-secondary w-100" type="button" routerLink="/order">Cancel</a>
-        <button class="btn btn-primary w-100" type="button" (click)="save()">Save</button>
+        <a routerLink="/order" class="btn btn-outline-secondary w-100" type="button">Cancel</a>
+        <button (click)="save()" class="btn btn-primary w-100" type="button">Save</button>
 
     </form>
 </div>

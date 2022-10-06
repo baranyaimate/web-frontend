@@ -51,8 +51,12 @@ export class EditOrderComponent implements OnInit {
     this.router.navigate(['/order'])
   }
 
-  addProductInput() {
+  addProduct(): void {
     this.order.products?.push(new Product);
+  }
+
+  removeProduct(productIndex: number = 0): void {
+    this.order.products?.splice(productIndex, 1);
   }
 
 }
