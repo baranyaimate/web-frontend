@@ -1,6 +1,6 @@
 <div class="form-container container-sm mt-4">
-    <form #editUserForm="ngForm" *ngIf="user" class="user-card d-flex justify-content-center align-items-stretch flex-column gap-3 p-4 mb-4 rounded border">
-        <img src="assets/svg/user.svg" class="rounded" alt="User profile picture placeholder" width="100" height="100">
+    <form #editUserForm="ngForm" *ngIf="user" class="d-flex flex-column gap-3 p-4 mb-4 rounded border">
+        <img src="assets/svg/user.svg" class="rounded m-auto" alt="User profile picture placeholder" width="100" height="100">
 
         <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert alert-danger mb-0">
             <div *ngIf="firstName.errors?.['required']">

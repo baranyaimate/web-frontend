@@ -1,5 +1,5 @@
 <div class="form-container container-sm mt-4">
-    <form #editOrderForm="ngForm" *ngIf="order" class="order-card d-flex justify-content-center align-items-stretch flex-column gap-3 p-4 mb-4 rounded border">
+    <form #editOrderForm="ngForm" *ngIf="order" class="d-flex flex-column gap-3 p-4 mb-4 rounded border">
 
         <div class="form-floating">
             <select [(ngModel)]="order.userId" #user="ngModel" id="user" name="user" class="form-control" required>
