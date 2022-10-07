@@ -29,13 +29,13 @@ export class UserService {
     };
 
     this._http
-      .delete<any>(environment.apiUrl + 'user/' + userId, httpOptions)
+      .delete<User>(environment.apiUrl + 'user/' + userId, httpOptions)
       .subscribe();
   }
 
   save(user: User): void {
     this._http
-      .put<any>(environment.apiUrl + 'user/' + user.id, user)
+      .put<User>(environment.apiUrl + 'user/' + user.id, user)
       .subscribe();
   }
 
