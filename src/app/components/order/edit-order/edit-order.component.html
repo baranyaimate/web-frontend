@@ -1,8 +1,8 @@
 <div class="form-container container-sm mt-4">
-    <form #editOrderForm="ngForm" *ngIf="order" class="order-card d-flex justify-content-center align-items-center flex-column gap-3 p-4 mb-4 rounded border">
+    <form #editOrderForm="ngForm" *ngIf="order" class="order-card d-flex justify-content-center align-items-stretch flex-column gap-3 p-4 mb-4 rounded border">
 
-        <div class="form-floating w-100">
-            <select [(ngModel)]="order.userId" id="user" name="user" class="form-control" required>
+        <div class="form-floating">
+            <select [(ngModel)]="order.userId" #user="ngModel" id="user" name="user" class="form-control" required>
                 <option *ngFor="let user of allUsers" [value]="user.id">
                     {{ user.firstName }} {{ user.lastName }}
                 </option>
@@ -10,9 +10,9 @@
             <label for="user">User</label>
         </div>
 
-        <div class="form-floating w-100 position-relative" *ngFor="let orderProduct of order.products; index as i">
+        <div class="form-floating" *ngFor="let orderProduct of order.products; index as i">
 
-            <select [(ngModel)]="orderProduct.id" id="{{ 'product-' + i }}" name="{{ 'product-' + i }}" class="form-control" required>
+            <select [(ngModel)]="orderProduct.id" #product="ngModel" id="{{ 'product-' + i }}" name="{{ 'product-' + i }}" class="form-control" required>
                 <option *ngFor="let item of allProducts" [value]="item.id">
                     {{ item.name }}
                 </option>
@@ -25,12 +25,12 @@
             
         </div>
     
-        <button (click)="addProduct()" class="btn btn-outline-secondary w-100">Add product</button>
+        <button (click)="addProduct()" class="btn btn-outline-secondary">Add product</button>
 
-        <hr class="w-100">
+        <hr class="">
 
-        <a routerLink="/order" class="btn btn-outline-secondary w-100" type="button">Cancel</a>
-        <button (click)="saveOrder()" class="btn btn-primary w-100" [disabled]="editOrderForm.invalid" type="button">Save order</button>
+        <a routerLink="/order" class="btn btn-outline-secondary" type="button">Cancel</a>
+        <button (click)="saveOrder()" class="btn btn-primary" [disabled]="editOrderForm.invalid" type="button">Save order</button>
 
     </form>
 </div>

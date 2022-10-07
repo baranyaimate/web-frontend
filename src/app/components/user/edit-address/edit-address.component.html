@@ -1,74 +1,74 @@
 <div class="form-container container-sm mt-4">
-    <form #editAddressForm="ngForm" *ngIf="address" class="address-card d-flex justify-content-center align-items-center flex-column gap-3 p-4 mb-4 rounded border">
+    <form #editAddressForm="ngForm" *ngIf="address" class="address-card d-flex justify-content-center align-items-stretch flex-column gap-3 p-4 mb-4 rounded border">
 
-        <div *ngIf="country.invalid && (country.dirty || country.touched)" class="alert alert-danger mb-0 w-100">
+        <div *ngIf="country.invalid && (country.dirty || country.touched)" class="alert alert-danger mb-0">
             <div *ngIf="country.errors?.['required']">
                 Country is required.
             </div>
         </div>
 
-        <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger mb-0 w-100">
+        <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger mb-0">
             <div *ngIf="city.errors?.['required']">
                 City is required.
             </div>
         </div>
 
-        <div *ngIf="postcode.invalid && (postcode.dirty || postcode.touched)" class="alert alert-danger mb-0 w-100">
+        <div *ngIf="postcode.invalid && (postcode.dirty || postcode.touched)" class="alert alert-danger mb-0">
             <div *ngIf="postcode.errors?.['required']">
                 Postcode is required.
             </div>
         </div>
 
-        <div *ngIf="state.invalid && (state.dirty || state.touched)" class="alert alert-danger mb-0 w-100">
+        <div *ngIf="state.invalid && (state.dirty || state.touched)" class="alert alert-danger mb-0">
             <div *ngIf="state.errors?.['required']">
                 State is required.
             </div>
         </div>
 
-        <div *ngIf="streetName.invalid && (streetName.dirty || streetName.touched)" class="alert alert-danger mb-0 w-100">
+        <div *ngIf="streetName.invalid && (streetName.dirty || streetName.touched)" class="alert alert-danger mb-0">
             <div *ngIf="streetName.errors?.['required']">
                 Street name is required.
             </div>
         </div>
 
-        <div *ngIf="streetNumber.invalid && (streetNumber.dirty || streetNumber.touched)" class="alert alert-danger mb-0 w-100">
+        <div *ngIf="streetNumber.invalid && (streetNumber.dirty || streetNumber.touched)" class="alert alert-danger mb-0">
             <div *ngIf="streetNumber.errors?.['required']">
                 Street number is required.
             </div>
         </div>
 
-        <div class="form-floating w-100">
+        <div class="form-floating">
             <input [(ngModel)]="address.country" #country="ngModel" type="text" id="country" name="country" class="form-control" required/>
             <label for="country">Country</label>
         </div>
 
-        <div class="form-floating w-100">
+        <div class="form-floating">
             <input [(ngModel)]="address.city" #city="ngModel" type="text" id="city" name="city" class="form-control" required/>
             <label for="city">City</label>
         </div>
 
-        <div class="form-floating w-100">
+        <div class="form-floating">
             <input [(ngModel)]="address.postcode" #postcode="ngModel" type="text" id="postcode" name="postcode" class="form-control" required/>
             <label for="postcode">Postcode</label>
         </div>
 
-        <div class="form-floating w-100">
+        <div class="form-floating">
             <input [(ngModel)]="address.state" #state="ngModel" type="text" id="state" name="state" class="form-control" required/>
             <label for="state">State</label>
         </div>
 
-        <div class="form-floating w-100">
+        <div class="form-floating">
             <input [(ngModel)]="address.streetName" #streetName="ngModel" type="text" id="streetName" name="streetName" class="form-control" required/>
             <label for="streetName">Street name</label>
         </div>
 
-        <div class="form-floating w-100">
+        <div class="form-floating">
             <input [(ngModel)]="address.streetNumber" #streetNumber="ngModel" type="text" id="streetNumber" name="streetNumber" class="form-control" required/>
             <label for="streetNumber">Street number</label>
         </div>
 
-        <a class="btn btn-outline-secondary w-100" type="button" routerLink="/user">Cancel</a>
-        <button class="btn btn-primary w-100" type="button" [disabled]="editAddressForm.invalid" (click)="saveAddress()">Save address</button>
+        <a class="btn btn-outline-secondary" type="button" routerLink="/user">Cancel</a>
+        <button class="btn btn-primary" type="button" [disabled]="editAddressForm.invalid" (click)="saveAddress()">Save address</button>
 
     </form>
 </div>
