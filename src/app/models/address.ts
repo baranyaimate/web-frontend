@@ -1,16 +1,13 @@
 import { User } from "./user";
 
-export class Address {
-    constructor(
-        public id?: number,
-        public country?: string,
-        public city?: string,
-        public postcode?: string,
-        public state?: string,
-        public streetName?: string,
-        public streetNumber?: string,
-        public user?: User,
-        public userId?: number
-    ) {}
-
+export interface Address {
+    id?: number,
+    country?: string,
+    city?: string,
+    postcode?: string,
+    state?: string,
+    streetName?: string,
+    streetNumber?: string,
+    user?: User,
+    userId?: number
 }

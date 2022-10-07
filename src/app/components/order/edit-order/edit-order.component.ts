@@ -52,7 +52,7 @@ export class EditOrderComponent implements OnInit {
   }
 
   addProduct(): void {
-    this.order.products?.push(new Product);
+    this.order.products?.push(new Object);
   }
 
   removeProduct(productIndex: number = 0): void {
