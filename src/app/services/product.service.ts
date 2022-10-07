@@ -33,9 +33,16 @@ export class ProductService {
       .subscribe();
   }
 
-  saveProduct(product: Product): void {
+  updateProduct(product: Product): void {
     this._http
       .put<Product>(environment.apiUrl + 'product/' + product.id, product)
       .subscribe();
   }
+
+  saveProduct(product: Product): void {
+    this._http
+      .post<Product>(environment.apiUrl + 'product', product)
+      .subscribe();
+  }
+
 }

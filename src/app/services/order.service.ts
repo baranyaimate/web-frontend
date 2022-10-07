@@ -33,9 +33,15 @@ export class OrderService {
       .subscribe();
   }
 
-  saveOrder(order: Order): void {
+  updateOrder(order: Order): void {
     this._http
       .put<Order>(environment.apiUrl + 'order/' + order.id, order)
+      .subscribe();
+  }
+
+  saveOrder(order: Order): void {
+    this._http
+      .post<Order>(environment.apiUrl + 'order', order)
       .subscribe();
   }
 

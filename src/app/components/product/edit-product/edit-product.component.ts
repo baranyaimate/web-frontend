@@ -23,8 +23,8 @@ export class EditProductComponent implements OnInit {
     this._productService.getProduct(this.id).subscribe(response => this.product = response);
   }
 
-  saveProduct(): void {
-    this._productService.saveProduct(this.product);
+  updateProduct(): void {
+    this._productService.updateProduct(this.product);
     this.router.navigate(['/product'])
   }
 

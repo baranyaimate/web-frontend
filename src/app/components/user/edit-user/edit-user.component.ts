@@ -28,9 +28,9 @@ export class EditUserComponent implements OnInit {
     this._userService.getUser(this.id).subscribe(response => this.user = response);
   }
 
-  saveUser() {
+  updateUser() {
     this.submitted = true;
-    this._userService.saveUser(this.user);
+    this._userService.updateUser(this.user);
     this.router.navigate(['/user'])
   }
 

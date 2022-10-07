@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EditOrderComponent } from './components/order/edit-order/edit-order.component';
 import { OrderComponent } from './components/order/order.component';
+import { CreateProductComponent } from './components/product/create-product/create-product.component';
 import { EditProductComponent } from './components/product/edit-product/edit-product.component';
 import { ProductComponent } from './components/product/product.component';
 import { AddressUserComponent } from './components/user/address-user/address-user.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'user/:id/address', component: AddressUserComponent },
 
   { path: 'product', component: ProductComponent },
+  { path: 'product/create', component: CreateProductComponent },
   { path: 'product/:id/edit', component: EditProductComponent },
 
   { path: 'order', component: OrderComponent },

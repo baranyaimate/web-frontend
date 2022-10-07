@@ -37,9 +37,16 @@ export class AddressService {
       .subscribe();
   }
 
-  saveAddress(address: Address): void {
+  updateAddress(address: Address): void {
     this._http
       .put<Address>(environment.apiUrl + 'address/' + address.id, address)
       .subscribe();
   }
+
+  saveAddress(address: Address): void {
+    this._http
+      .post<Address>(environment.apiUrl + 'address', address)
+      .subscribe();
+  }
+
 }

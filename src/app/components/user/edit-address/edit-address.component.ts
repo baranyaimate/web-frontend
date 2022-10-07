@@ -27,9 +27,9 @@ export class EditAddressComponent implements OnInit {
     this._addressService.getAddress(this.id).subscribe(response => this.address = response);
   }
 
-  saveAddress(): void {
+  updateAddress(): void {
     this.address.userId = this.address.user?.id;
-    this._addressService.saveAddress(this.address);
+    this._addressService.updateAddress(this.address);
     this.router.navigate(['/user'])
   }
 

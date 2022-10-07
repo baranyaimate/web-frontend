@@ -33,9 +33,15 @@ export class UserService {
       .subscribe();
   }
 
-  saveUser(user: User): void {
+  updateUser(user: User): void {
     this._http
       .put<User>(environment.apiUrl + 'user/' + user.id, user)
+      .subscribe();
+  }
+
+  saveUser(user: User): void {
+    this._http
+      .post<User>(environment.apiUrl + 'user', user)
       .subscribe();
   }
 

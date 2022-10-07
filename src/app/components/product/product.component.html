@@ -1,6 +1,9 @@
 <div class="container mt-4">
-    <div *ngFor="let product of products" class="product-card d-flex justify-content-between align-items-center p-4 mb-4 rounded border">
-        <div class="product-info d-flex">
+
+    <a routerLink="/product/create" class="btn btn-primary mb-4">Create product</a>
+
+    <div *ngFor="let product of products" class="d-flex justify-content-between align-items-center p-4 mb-4 rounded border">
+        <div>
             <div class="d-flex justify-content-center flex-column">
                 <h4 class="text-start">{{ product.name }}</h4>
                 <h5 class="text-start">{{ product.price }}</h5>

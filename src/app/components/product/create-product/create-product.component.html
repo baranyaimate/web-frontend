@@ -1,5 +1,5 @@
 <div class="form-container container mt-4">
-    <form #editProductForm="ngForm" *ngIf="product" class="d-flex flex-column gap-3 p-4 mb-4 rounded border">
+    <form #createProductForm="ngForm" class="d-flex flex-column gap-3 p-4 mb-4 rounded border">
 
         <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger mb-0">
             <div *ngIf="name.errors?.['required']">
@@ -17,17 +17,17 @@
         </div>
 
         <div class="form-floating">
-            <input [(ngModel)]="product.name" #name="ngModel" type="text" id="name" name="name" class="form-control" minlength="2" required/>
+            <input [(ngModel)]="product.name" #name="ngModel" placeholder="Apple" type="text" id="name" name="name" class="form-control" minlength="2" required/>
             <label for="name">Name</label>
         </div>
 
         <div class="form-floating">
-            <input [(ngModel)]="product.price" #price="ngModel" type="number" step="100" id="price" name="price" class="form-control" min="0" required/>
+            <input [(ngModel)]="product.price" #price="ngModel" placeholder="1000" type="number" step="100" id="price" name="price" class="form-control" min="0" required/>
             <label for="price">Price</label>
         </div>
 
         <a class="btn btn-outline-secondary" type="button" routerLink="/product">Cancel</a>
-        <button class="btn btn-primary" type="button" [disabled]="editProductForm.invalid" (click)="updateProduct()">Save product</button>
+        <button class="btn btn-primary" type="button" [disabled]="createProductForm.invalid" (click)="saveProduct()">Save product</button>
 
     </form>
 </div>
