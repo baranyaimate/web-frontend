@@ -16,16 +16,20 @@ export class ProductComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.loadProducts();
+  }
+
+  loadProducts(): void {
     this._productService.getProducts().subscribe(response => this.products = response);
   }
 
-  delete(id: number = 0): void {
-    if (id == 0) {
+  deleteProduct(productId: number = 0): void {
+    if (productId == 0) {
       console.error('Invalid product id');
     }
 
-    this._productService.delete(id);
-    this.products = this.products.filter(product => product.id != id);
+    this._productService.delete(productId);
+    this.products = this.products.filter(product => product.id != productId);
   }
 
 }

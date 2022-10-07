@@ -13,7 +13,6 @@ export class EditUserComponent implements OnInit {
   user: User;
   id: number = parseInt(this.activatedRoute.snapshot.paramMap.get("id") ?? '');
   submitted = false;
-  
 
   constructor(
     private router: Router,
@@ -22,10 +21,14 @@ export class EditUserComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+   this.loadUsers();
+  }
+
+  loadUsers(): void {
     this._userService.getUser(this.id).subscribe(response => this.user = response);
   }
 
-  save() {
+  saveUser() {
     this.submitted = true;
     this._userService.save(this.user);
     this.router.navigate(['/user'])

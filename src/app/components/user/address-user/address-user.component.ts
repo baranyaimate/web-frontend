@@ -19,10 +19,14 @@ export class AddressUserComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.loadAddresses();
+  }
+
+  loadAddresses(): void {
     this._addressService.getAddressesByUserId(this.userId).subscribe(response => this.addresses = response);
   }
 
-  delete(addressId: number = 0) {
+  deleteAddress(addressId: number = 0): void {
     if (addressId == 0) {
       console.error('Invalid address id');
     }

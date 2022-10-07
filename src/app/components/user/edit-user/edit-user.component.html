@@ -48,20 +48,7 @@
         </div>
 
         <a class="btn btn-outline-secondary w-100" type="button" routerLink="/user">Cancel</a>
-        <button class="btn btn-primary w-100" type="button" [disabled]="editUserForm.invalid" (click)="save()">Save</button>
+        <button class="btn btn-primary w-100" type="button" [disabled]="editUserForm.invalid" (click)="saveUser()">Save</button>
 
     </form>
-</div>
-
-<div aria-live="polite" aria-atomic="true" class="bg-dark position-relative bd-example-toasts">
-    <div class="toast-container p-3" id="toastPlacement">
-        <div class="toast">
-            <div class="toast-header">
-                <strong class="me-auto">Bootstrap</strong>
-            </div>
-            <div class="toast-body">
-                Hello, world! This is a toast message.
-            </div>
-        </div>
-    </div>
 </div>

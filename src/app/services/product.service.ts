@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Product } from '../models/product';
 
@@ -14,27 +15,27 @@ export class ProductService {
     private _http: HttpClient,
   ) { }
 
-  getProduct(productId: number) {
-    return this._http.get<any>(environment.apiUrl + 'product/' + productId)
+  getProduct(productId: number): Observable<Product> {
+    return this._http.get<Product>(environment.apiUrl + 'product/' + productId)
   }
 
-  getProducts() {
-    return this._http.get<any>(environment.apiUrl + 'product');
+  getProducts(): Observable<Product[]> {
+    return this._http.get<Product[]>(environment.apiUrl + 'product');
   }
 
-  delete(productId: number) {
+  delete(productId: number): void {
     const httpOptions : Object = {
       responseType: 'text'
     };
 
     this._http
-      .delete<any>(environment.apiUrl + 'product/' + productId, httpOptions)
+      .delete<Product>(environment.apiUrl + 'product/' + productId, httpOptions)
       .subscribe();
   }
 
   save(product: Product): void {
     this._http
-      .put<any>(environment.apiUrl + 'product/' + product.id, product)
+      .put<Product>(environment.apiUrl + 'product/' + product.id, product)
       .subscribe();
   }
 }

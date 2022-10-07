@@ -20,13 +20,13 @@ export class OrderComponent implements OnInit {
     this.loadOrders();
   }
 
-  delete(id: number = 0): void {
-    if (id == 0) {
+  deleteOrder(orderId: number = 0): void {
+    if (orderId == 0) {
       console.error('Invalid order id');
     }
 
-    this._orderService.delete(id);
-    this.orders = this.orders.filter(order => order.id != id);
+    this._orderService.delete(orderId);
+    this.orders = this.orders.filter(order => order.id != orderId);
   }
 
   loadOrders() {

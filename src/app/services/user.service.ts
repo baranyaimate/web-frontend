@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { User } from 'src/app/models/user';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +15,12 @@ export class UserService {
     private _http: HttpClient,
   ) { }
 
-  getUsers() {
-    return this._http.get<any>(environment.apiUrl + 'user');
+  getUsers(): Observable<User[]> {
+    return this._http.get<User[]>(environment.apiUrl + 'user');
   }
 
-  getUser(userId: number) {
-    return this._http.get<any>(environment.apiUrl + 'user/' + userId)
+  getUser(userId: number): Observable<User> {
+    return this._http.get<User>(environment.apiUrl + 'user/' + userId)
   }
 
   delete(userId: number): void {

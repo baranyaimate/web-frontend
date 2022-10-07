@@ -20,10 +20,14 @@ export class EditAddressComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.loadAddresses();
+  }
+
+  loadAddresses(): void {
     this._addressService.getAddress(this.id).subscribe(response => this.address = response);
   }
 
-  save() {
+  saveAddress(): void {
     this.address.userId = this.address.user?.id;
     this._addressService.save(this.address);
     this.router.navigate(['/user'])

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Order } from 'src/app/models/order';
 import { environment } from 'src/environments/environment';
 
@@ -14,12 +15,12 @@ export class OrderService {
     private _http: HttpClient,
   ) { }
 
-  getOrders() {
-    return this._http.get<any>(environment.apiUrl + 'order');
+  getOrders(): Observable<Order[]> {
+    return this._http.get<Order[]>(environment.apiUrl + 'order');
   }
 
-  getOrder(orderId: number) {
-    return this._http.get<any>(environment.apiUrl + 'order/' + orderId)
+  getOrder(orderId: number): Observable<Order> {
+    return this._http.get<Order>(environment.apiUrl + 'order/' + orderId)
   }
 
   delete(orderId: number): void {
@@ -28,13 +29,13 @@ export class OrderService {
     };
 
     this._http
-      .delete<any>(environment.apiUrl + 'order/' + orderId, httpOptions)
+      .delete<Order>(environment.apiUrl + 'order/' + orderId, httpOptions)
       .subscribe();
   }
 
   save(order: Order): void {
     this._http
-      .put<any>(environment.apiUrl + 'order/' + order.id, order)
+      .put<Order>(environment.apiUrl + 'order/' + order.id, order)
       .subscribe();
   }
 

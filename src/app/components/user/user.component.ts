@@ -17,16 +17,20 @@ export class UserComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.loadUsers();
+  }
+
+  loadUsers(): void {
     this._userService.getUsers().subscribe(response => this.users = response);
   }
 
-  delete(id: number = 0): void {
-    if (id == 0) {
+  deleteUser(userId: number = 0): void {
+    if (userId == 0) {
       console.error('Invalid user id');
     }
 
-    this._userService.delete(id);
-    this.users = this.users.filter(user => user.id != id);
+    this._userService.delete(userId);
+    this.users = this.users.filter(user => user.id != userId);
   }
 
 }
