@@ -31,7 +31,7 @@ export class AddressUserComponent implements OnInit {
       console.error('Invalid address id');
     }
 
-    this._addressService.delete(addressId);
+    this._addressService.deleteAddress(addressId);
     this.addresses = this.addresses.filter(address => address.id != addressId);
   }
 

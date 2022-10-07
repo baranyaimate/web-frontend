@@ -24,7 +24,7 @@ export class OrderComponent implements OnInit {
       console.error('Invalid order id');
     }
 
-    this._orderService.delete(orderId);
+    this._orderService.deleteOrder(orderId);
     this.orders = this.orders.filter(order => order.id != orderId);
   }
 

@@ -29,7 +29,7 @@ export class EditAddressComponent implements OnInit {
 
   saveAddress(): void {
     this.address.userId = this.address.user?.id;
-    this._addressService.save(this.address);
+    this._addressService.saveAddress(this.address);
     this.router.navigate(['/user'])
   }
 

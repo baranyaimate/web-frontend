@@ -29,7 +29,7 @@ export class UserComponent implements OnInit {
       console.error('Invalid user id');
     }
 
-    this._userService.delete(userId);
+    this._userService.deleteUser(userId);
     this.users = this.users.filter(user => user.id != userId);
   }
 

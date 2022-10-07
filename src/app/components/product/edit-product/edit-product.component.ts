@@ -24,7 +24,7 @@ export class EditProductComponent implements OnInit {
   }
 
   saveProduct(): void {
-    this._productService.save(this.product);
+    this._productService.saveProduct(this.product);
     this.router.navigate(['/product'])
   }
 

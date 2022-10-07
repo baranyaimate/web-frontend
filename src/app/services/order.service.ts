@@ -23,7 +23,7 @@ export class OrderService {
     return this._http.get<Order>(environment.apiUrl + 'order/' + orderId)
   }
 
-  delete(orderId: number): void {
+  deleteOrder(orderId: number): void {
     const httpOptions : Object = {
       responseType: 'text'
     };
@@ -33,7 +33,7 @@ export class OrderService {
       .subscribe();
   }
 
-  save(order: Order): void {
+  saveOrder(order: Order): void {
     this._http
       .put<Order>(environment.apiUrl + 'order/' + order.id, order)
       .subscribe();

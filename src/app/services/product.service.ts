@@ -23,7 +23,7 @@ export class ProductService {
     return this._http.get<Product[]>(environment.apiUrl + 'product');
   }
 
-  delete(productId: number): void {
+  deleteProduct(productId: number): void {
     const httpOptions : Object = {
       responseType: 'text'
     };
@@ -33,7 +33,7 @@ export class ProductService {
       .subscribe();
   }
 
-  save(product: Product): void {
+  saveProduct(product: Product): void {
     this._http
       .put<Product>(environment.apiUrl + 'product/' + product.id, product)
       .subscribe();

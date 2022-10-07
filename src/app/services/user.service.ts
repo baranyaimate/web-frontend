@@ -23,7 +23,7 @@ export class UserService {
     return this._http.get<User>(environment.apiUrl + 'user/' + userId)
   }
 
-  delete(userId: number): void {
+  deleteUser(userId: number): void {
     const httpOptions : Object = {
       responseType: 'text'
     };
@@ -33,7 +33,7 @@ export class UserService {
       .subscribe();
   }
 
-  save(user: User): void {
+  saveUser(user: User): void {
     this._http
       .put<User>(environment.apiUrl + 'user/' + user.id, user)
       .subscribe();

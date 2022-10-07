@@ -28,7 +28,7 @@ export class ProductComponent implements OnInit {
       console.error('Invalid product id');
     }
 
-    this._productService.delete(productId);
+    this._productService.deleteProduct(productId);
     this.products = this.products.filter(product => product.id != productId);
   }
 

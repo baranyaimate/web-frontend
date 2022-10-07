@@ -27,7 +27,7 @@ export class AddressService {
     return this._http.get<Address[]>(environment.apiUrl + 'address');
   }
 
-  delete(addressId: number): void {
+  deleteAddress(addressId: number): void {
     const httpOptions : Object = {
       responseType: 'text'
     };
@@ -37,7 +37,7 @@ export class AddressService {
       .subscribe();
   }
 
-  save(address: Address): void {
+  saveAddress(address: Address): void {
     this._http
       .put<Address>(environment.apiUrl + 'address/' + address.id, address)
       .subscribe();

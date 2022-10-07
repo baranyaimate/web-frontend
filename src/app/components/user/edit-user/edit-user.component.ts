@@ -30,7 +30,7 @@ export class EditUserComponent implements OnInit {
 
   saveUser() {
     this.submitted = true;
-    this._userService.save(this.user);
+    this._userService.saveUser(this.user);
     this.router.navigate(['/user'])
   }
 

@@ -41,13 +41,13 @@ export class EditOrderComponent implements OnInit {
     this._productService.getProducts().subscribe(response => this.allProducts = response);
   }
 
-  save() {
+  saveOrder() {
     this.order.productIds = [];
     this.order.products?.forEach(product => {
       this.order.productIds?.push(product.id ?? 0);
     });
 
-    this._orderService.save(this.order);
+    this._orderService.saveOrder(this.order);
     this.router.navigate(['/order']);
   }
 
