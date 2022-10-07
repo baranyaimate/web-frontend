@@ -1,3 +1,4 @@
+import { registerLocaleData } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Order } from 'src/app/models/order';
 import { OrderService } from 'src/app/services/order.service';
@@ -16,7 +17,7 @@ export class OrderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this._orderService.getOrders().subscribe(response => this.orders = response);
+    this.loadOrders();
   }
 
   delete(id: number = 0): void {
@@ -26,6 +27,10 @@ export class OrderComponent implements OnInit {
 
     this._orderService.delete(id);
     this.orders = this.orders.filter(order => order.id != id);
+  }
+
+  loadOrders() {
+    this._orderService.getOrders().subscribe(response => this.orders = response);
   }
 
 }

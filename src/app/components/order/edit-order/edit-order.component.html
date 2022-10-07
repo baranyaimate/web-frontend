@@ -12,14 +12,14 @@
 
         <div class="form-floating w-100 position-relative" *ngFor="let orderProduct of order.products; index as i">
 
-            <select [(ngModel)]="orderProduct.id" id="{{ 'product-' + i }}" name="{{ 'product-' + i }}" class="form-control">
+            <select [(ngModel)]="orderProduct.id" id="{{ 'product-' + i }}" name="{{ 'product-' + i }}" class="form-control" required>
                 <option *ngFor="let item of allProducts" [value]="item.id">
                     {{ item.name }}
                 </option>
             </select>
             <label for="product">Product #{{ i + 1 }}</label>
 
-            <button (click)="removeProduct(i)" class="remove-btn position-absolute end-0 top-50 translate-middle btn btn-outline-danger btn-sm">
+            <button (click)="removeProduct(i)" *ngIf="(order.products?.length ?? 0) > 1" class="remove-btn position-absolute end-0 top-50 translate-middle btn btn-outline-danger btn-sm">
                 <em class="bi bi-trash3"></em>
             </button>
             
@@ -30,7 +30,7 @@
         <hr class="w-100">
 
         <a routerLink="/order" class="btn btn-outline-secondary w-100" type="button">Cancel</a>
-        <button (click)="save()" class="btn btn-primary w-100" type="button">Save</button>
+        <button (click)="save()" class="btn btn-primary w-100" [disabled]="editOrderForm.invalid" type="button">Save order</button>
 
     </form>
 </div>

@@ -48,7 +48,7 @@ export class EditOrderComponent implements OnInit {
     });
 
     this._orderService.save(this.order);
-    this.router.navigate(['/order'])
+    this.router.navigate(['/order']);
   }
 
   addProduct(): void {
