@@ -38,12 +38,18 @@ export class AddressService {
   }
 
   updateAddress(address: Address): void {
+    address.userId = address.user?.id;
+
     this._http
       .put<Address>(environment.apiUrl + 'address/' + address.id, address)
       .subscribe();
   }
 
   saveAddress(address: Address): void {
+    if (address.user) {
+      address.userId = address.user.id;
+    }
+  
     this._http
       .post<Address>(environment.apiUrl + 'address', address)
       .subscribe();

@@ -1,0 +1,36 @@
+<div class="form-container container mt-4">
+    <form #createOrderForm="ngForm" class="d-flex flex-column gap-3 p-4 mb-4 rounded border">
+
+        <div class="form-floating">
+            <select [(ngModel)]="order.userId" #user="ngModel" id="user" name="user" class="form-control" required>
+                <option *ngFor="let user of allUsers" [value]="user.id">
+                    {{ user.firstName }} {{ user.lastName }}
+                </option>
+            </select>
+            <label for="user">User</label>
+        </div>
+
+        <div class="form-floating" *ngFor="let orderProduct of order.products; index as i">
+
+            <select [(ngModel)]="orderProduct.id" #product="ngModel" id="{{ 'product-' + i }}" name="{{ 'product-' + i }}" class="form-control" required>
+                <option *ngFor="let item of allProducts" [value]="item.id">
+                    {{ item.name }}
+                </option>
+            </select>
+            <label for="product">Product #{{ i + 1 }}</label>
+
+            <button (click)="removeProduct(i)" *ngIf="(order.products?.length ?? 0) > 1" class="remove-btn position-absolute end-0 top-50 translate-middle btn btn-outline-danger btn-sm">
+                <em class="bi bi-trash3"></em>
+            </button>
+            
+        </div>
+    
+        <button (click)="addProduct()" class="btn btn-outline-secondary">Add product</button>
+
+        <hr class="">
+
+        <a routerLink="/order" class="btn btn-outline-secondary" type="button">Cancel</a>
+        <button (click)="saveOrder()" class="btn btn-primary" [disabled]="createOrderForm.invalid" type="button">Save order</button>
+
+    </form>
+</div>

@@ -28,7 +28,6 @@ export class EditAddressComponent implements OnInit {
   }
 
   updateAddress(): void {
-    this.address.userId = this.address.user?.id;
     this._addressService.updateAddress(this.address);
     this.router.navigate(['/user'])
   }

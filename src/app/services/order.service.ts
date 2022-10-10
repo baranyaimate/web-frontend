@@ -34,12 +34,22 @@ export class OrderService {
   }
 
   updateOrder(order: Order): void {
+    order.productIds = [];
+    order.products?.forEach(product => {
+      order.productIds?.push(product.id ?? 0);
+    });
+
     this._http
       .put<Order>(environment.apiUrl + 'order/' + order.id, order)
       .subscribe();
   }
 
   saveOrder(order: Order): void {
+    order.productIds = [];
+    order.products?.forEach(product => {
+      order.productIds?.push(product.id ?? 0);
+    });
+
     this._http
       .post<Order>(environment.apiUrl + 'order', order)
       .subscribe();

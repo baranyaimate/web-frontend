@@ -1,0 +1,74 @@
+<div class="form-container container mt-4">
+    <form #createAddressForm="ngForm" class="d-flex flex-column gap-3 p-4 mb-4 rounded border">
+
+        <div *ngIf="country.invalid && (country.dirty || country.touched)" class="alert alert-danger mb-0">
+            <div *ngIf="country.errors?.['required']">
+                Country is required.
+            </div>
+        </div>
+
+        <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger mb-0">
+            <div *ngIf="city.errors?.['required']">
+                City is required.
+            </div>
+        </div>
+
+        <div *ngIf="postcode.invalid && (postcode.dirty || postcode.touched)" class="alert alert-danger mb-0">
+            <div *ngIf="postcode.errors?.['required']">
+                Postcode is required.
+            </div>
+        </div>
+
+        <div *ngIf="state.invalid && (state.dirty || state.touched)" class="alert alert-danger mb-0">
+            <div *ngIf="state.errors?.['required']">
+                State is required.
+            </div>
+        </div>
+
+        <div *ngIf="streetName.invalid && (streetName.dirty || streetName.touched)" class="alert alert-danger mb-0">
+            <div *ngIf="streetName.errors?.['required']">
+                Street name is required.
+            </div>
+        </div>
+
+        <div *ngIf="streetNumber.invalid && (streetNumber.dirty || streetNumber.touched)" class="alert alert-danger mb-0">
+            <div *ngIf="streetNumber.errors?.['required']">
+                Street number is required.
+            </div>
+        </div>
+
+        <div class="form-floating">
+            <input [(ngModel)]="address.country" #country="ngModel" placeholder="United States" type="text" id="country" name="country" class="form-control" required/>
+            <label for="country">Country</label>
+        </div>
+
+        <div class="form-floating">
+            <input [(ngModel)]="address.city" #city="ngModel" placeholder="Rose Hill" type="text" id="city" name="city" class="form-control" required/>
+            <label for="city">City</label>
+        </div>
+
+        <div class="form-floating">
+            <input [(ngModel)]="address.postcode" #postcode="ngModel" placeholder="67133" type="text" id="postcode" name="postcode" class="form-control" required/>
+            <label for="postcode">Postcode</label>
+        </div>
+
+        <div class="form-floating">
+            <input [(ngModel)]="address.state" #state="ngModel" placeholder="Kansas" type="text" id="state" name="state" class="form-control" required/>
+            <label for="state">State</label>
+        </div>
+
+        <div class="form-floating">
+            <input [(ngModel)]="address.streetName" #streetName="ngModel" placeholder="Henery Street" type="text" id="streetName" name="streetName" class="form-control" required/>
+            <label for="streetName">Street name</label>
+        </div>
+
+        <div class="form-floating">
+            <input [(ngModel)]="address.streetNumber" #streetNumber="ngModel" placeholder="990" type="text" id="streetNumber" name="streetNumber" class="form-control" required/>
+            <label for="streetNumber">Street number</label>
+        </div>
+
+        <a class="btn btn-outline-secondary" type="button" routerLink="/user">Cancel</a>
+        <button class="btn btn-primary" type="button" [disabled]="createAddressForm.invalid" (click)="saveAddress()">Save address</button>
+
+    </form>
+</div>

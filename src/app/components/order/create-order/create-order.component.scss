@@ -1,0 +1,11 @@
+.remove-btn {
+    margin-right: -0.25rem;
+ }
+ 
+ .form-floating .remove-btn {
+     visibility: hidden;
+ }
+ 
+ .form-floating:hover .remove-btn {
+     visibility: visible;
+ }

@@ -15,6 +15,9 @@ import { EditAddressComponent } from './components/user/edit-address/edit-addres
 import { EditProductComponent } from './components/product/edit-product/edit-product.component';
 import { EditOrderComponent } from './components/order/edit-order/edit-order.component';
 import { CreateProductComponent } from './components/product/create-product/create-product.component';
+import { CreateUserComponent } from './components/user/create-user/create-user.component';
+import { CreateOrderComponent } from './components/order/create-order/create-order.component';
+import { CreateAddressComponent } from './components/user/create-address/create-address.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { CreateProductComponent } from './components/product/create-product/crea
     EditAddressComponent,
     EditProductComponent,
     EditOrderComponent,
-    CreateProductComponent
+    CreateProductComponent,
+    CreateUserComponent,
+    CreateOrderComponent,
+    CreateAddressComponent
   ],
   imports: [
     BrowserModule,
