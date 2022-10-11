@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Address } from 'src/app/models/address';
+import { Country } from 'src/app/models/country';
 import { AddressService } from 'src/app/services/address.service';
+import { countries } from 'src/app/stores/country-data-store';
 
 @Component({
   selector: 'app-create-address',
@@ -10,6 +12,7 @@ import { AddressService } from 'src/app/services/address.service';
 })
 export class CreateAddressComponent {
 
+  countries: Country[] = countries;
   address: Address = {};
   userId: number = parseInt(this.activatedRoute.snapshot.paramMap.get("id") ?? '');
 

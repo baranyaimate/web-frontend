@@ -38,8 +38,12 @@
         </div>
 
         <div class="form-floating">
-            <input [(ngModel)]="address.country" #country="ngModel" placeholder="United States" type="text" id="country" name="country" class="form-control" required/>
-            <label for="country">Country</label>
+            <select [(ngModel)]="address.country" #country="ngModel" id="country" name="country" class="form-control" required>
+                <option *ngFor="let country of countries" [value]="country.name">
+                    {{ country.name }}
+                </option>
+            </select>
+            <label for="user">Country</label>
         </div>
 
         <div class="form-floating">
@@ -67,7 +71,7 @@
             <label for="streetNumber">Street number</label>
         </div>
 
-        <a class="btn btn-outline-secondary" type="button" routerLink="/user">Cancel</a>
+        <a class="btn btn-outline-secondary" type="button" routerLink="/user/{{ userId }}/address">Cancel</a>
         <button class="btn btn-primary" type="button" [disabled]="createAddressForm.invalid" (click)="saveAddress()">Save address</button>
 
     </form>
