@@ -63,31 +63,31 @@
 
         <div class="form-floating">
             <input [(ngModel)]="address.city" #city="ngModel" [ngClass]="{'is-invalid' : city.errors && (city.dirty || city.touched) }"
-                type="text" id="city" name="city" class="form-control" required/>
+                type="text" id="city" name="city" class="form-control" minlength="2" required/>
             <label for="city">City</label>
         </div>
 
         <div class="form-floating">
             <input [(ngModel)]="address.postcode" #postcode="ngModel" [ngClass]="{'is-invalid' : postcode.errors && (postcode.dirty || postcode.touched) }"
-                type="text" id="postcode" name="postcode" class="form-control" required/>
+                type="text" id="postcode" name="postcode" class="form-control" minlength="2" required/>
             <label for="postcode">Postcode</label>
         </div>
 
         <div class="form-floating">
             <input [(ngModel)]="address.state" #state="ngModel" [ngClass]="{'is-invalid' : state.errors && (state.dirty || state.touched) }"
-                type="text" id="state" name="state" class="form-control" required/>
+                type="text" id="state" name="state" class="form-control" minlength="2" required/>
             <label for="state">State</label>
         </div>
 
         <div class="form-floating">
             <input [(ngModel)]="address.streetName" #streetName="ngModel" [ngClass]="{'is-invalid' : streetName.errors && (streetName.dirty || streetName.touched) }"
-                type="text" id="streetName" name="streetName" class="form-control" required/>
+                type="text" id="streetName" name="streetName" class="form-control" minlength="2" required/>
             <label for="streetName">Street name</label>
         </div>
 
         <div class="form-floating">
             <input [(ngModel)]="address.streetNumber" #streetNumber="ngModel" [ngClass]="{'is-invalid' : streetNumber.errors && (streetNumber.dirty || streetNumber.touched) }"
-                type="text" id="streetNumber" name="streetNumber" class="form-control" required/>
+                type="text" id="streetNumber" name="streetNumber" class="form-control" minlength="2" required/>
             <label for="streetNumber">Street number</label>
         </div>
 
