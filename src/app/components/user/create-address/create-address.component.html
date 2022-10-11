@@ -5,11 +5,17 @@
             <div *ngIf="country.errors?.['required']">
                 Country is required.
             </div>
+            <div *ngIf="country.errors?.['minlength']">
+                Country must be at least {{ country.errors?.['minlength'].requiredLength }} characters long.
+            </div>
         </div>
 
         <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger mb-0">
             <div *ngIf="city.errors?.['required']">
                 City is required.
+            </div>
+            <div *ngIf="city.errors?.['minlength']">
+                City must be at least {{ city.errors?.['minlength'].requiredLength }} characters long.
             </div>
         </div>
 
@@ -17,11 +23,17 @@
             <div *ngIf="postcode.errors?.['required']">
                 Postcode is required.
             </div>
+            <div *ngIf="postcode.errors?.['minlength']">
+                Postcode must be at least {{ postcode.errors?.['minlength'].requiredLength }} characters long.
+            </div>
         </div>
 
         <div *ngIf="state.invalid && (state.dirty || state.touched)" class="alert alert-danger mb-0">
             <div *ngIf="state.errors?.['required']">
                 State is required.
+            </div>
+            <div *ngIf="state.errors?.['minlength']">
+                State must be at least {{ state.errors?.['minlength'].requiredLength }} characters long.
             </div>
         </div>
 
@@ -29,16 +41,23 @@
             <div *ngIf="streetName.errors?.['required']">
                 Street name is required.
             </div>
+            <div *ngIf="streetName.errors?.['minlength']">
+                Street name must be at least {{ streetName.errors?.['minlength'].requiredLength }} characters long.
+            </div>
         </div>
 
         <div *ngIf="streetNumber.invalid && (streetNumber.dirty || streetNumber.touched)" class="alert alert-danger mb-0">
             <div *ngIf="streetNumber.errors?.['required']">
                 Street number is required.
             </div>
+            <div *ngIf="streetNumber.errors?.['minlength']">
+                Street number must be at least {{ streetNumber.errors?.['minlength'].requiredLength }} characters long.
+            </div>
         </div>
 
         <div class="form-floating">
-            <select [(ngModel)]="address.country" #country="ngModel" id="country" name="country" class="form-control" required>
+            <select [(ngModel)]="address.country" [ngClass]="{'is-invalid' : country.errors && (country.dirty || country.touched) }"
+                #country="ngModel" id="country" name="country" class="form-control" required>
                 <option *ngFor="let country of countries" [value]="country.name">
                     {{ country.name }}
                 </option>
@@ -47,27 +66,32 @@
         </div>
 
         <div class="form-floating">
-            <input [(ngModel)]="address.city" #city="ngModel" placeholder="Rose Hill" type="text" id="city" name="city" class="form-control" required/>
+            <input [(ngModel)]="address.city" #city="ngModel" [ngClass]="{'is-invalid' : city.errors && (city.dirty || city.touched) }"
+                placeholder="Rose Hill" type="text" id="city" name="city" class="form-control" minlength="2" required/>
             <label for="city">City</label>
         </div>
 
         <div class="form-floating">
-            <input [(ngModel)]="address.postcode" #postcode="ngModel" placeholder="67133" type="text" id="postcode" name="postcode" class="form-control" required/>
+            <input [(ngModel)]="address.postcode" #postcode="ngModel" [ngClass]="{'is-invalid' : postcode.errors && (postcode.dirty || postcode.touched) }"
+                placeholder="67133" type="text" id="postcode" name="postcode" class="form-control" minlength="2" required/>
             <label for="postcode">Postcode</label>
         </div>
 
         <div class="form-floating">
-            <input [(ngModel)]="address.state" #state="ngModel" placeholder="Kansas" type="text" id="state" name="state" class="form-control" required/>
+            <input [(ngModel)]="address.state" #state="ngModel" [ngClass]="{'is-invalid' : state.errors && (state.dirty || state.touched) }"
+                placeholder="Kansas" type="text" id="state" name="state" class="form-control" minlength="2" required/>
             <label for="state">State</label>
         </div>
 
         <div class="form-floating">
-            <input [(ngModel)]="address.streetName" #streetName="ngModel" placeholder="Henery Street" type="text" id="streetName" name="streetName" class="form-control" required/>
+            <input [(ngModel)]="address.streetName" #streetName="ngModel" [ngClass]="{'is-invalid' : streetName.errors && (streetName.dirty || streetName.touched) }"
+                placeholder="Henery Street" type="text" id="streetName" name="streetName" class="form-control" minlength="2" required/>
             <label for="streetName">Street name</label>
         </div>
 
         <div class="form-floating">
-            <input [(ngModel)]="address.streetNumber" #streetNumber="ngModel" placeholder="990" type="text" id="streetNumber" name="streetNumber" class="form-control" required/>
+            <input [(ngModel)]="address.streetNumber" #streetNumber="ngModel" [ngClass]="{'is-invalid' : streetNumber.errors && (streetNumber.dirty || streetNumber.touched) }"
+            placeholder="990" type="text" id="streetNumber" name="streetNumber" class="form-control" minlength="2" required/>
             <label for="streetNumber">Street number</label>
         </div>
 
